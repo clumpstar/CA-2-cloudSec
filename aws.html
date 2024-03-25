@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Replace the existing Bootstrap CDN link with Tailwind CSS CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet"> -->
+</head>
+
+<body>
+    <div class="container mx-auto flex flex-col justify-center items-center">
+        <h1 class="text-center text-4xl font-bold my-8">
+            AWS S3 Storage File CRUD App
+        </h1>
+        <div class="border rounded-lg shadow-lg p-6 flex flex-col items-center mt-11">
+            <h2 class="text-2xl font-semibold mb-4">Upload Files</h2>
+            <div class="w-full max-w-sm mx-auto">
+                <div class="mt-4">
+                    <input type="file" multiple class="border border-gray-300 p-2 w-full rounded-lg" id="fileInput" required>
+                </div>
+                <div class="mt-4">
+                    <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 w-full" onclick="uploadFiles('cloudsecbucket')">Upload
+                        File</button>
+                </div>
+            </div>
+        </div>
+        <div class="flex flex-col items-center justify-center mt-20 gap-8 w-full p-8 rounded-lg border">
+            <h2 class="text-2xl font-bold">Uploaded Files</h2>
+            <table id="fileTable" class="w-full text-left table-auto min-w-max">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th>Name</th>
+                        <th>Size (Bytes)</th>
+                        <th>Download</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Table body content goes here -->
+                </tbody>
+            </table>
+        </div>
+
+
+
+    </div>
+</body>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.932.0.min.js"></script>
+<script src="script.js"></script>
+
+</html>

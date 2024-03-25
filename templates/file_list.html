@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uploaded Files</title>
+    <!-- Replace the existing Bootstrap CDN link with Tailwind CSS CDN link -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="p-6">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 cursor-pointer" onclick="goToHome()">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18" />
+          </svg>
+
+    </div>
+    <div class="container mx-auto flex flex-col justify-center items-center">
+        <div class="flex flex-col items-center justify-center mt-20 gap-8 w-full p-8 rounded-lg border">
+            <h2 class="text-2xl font-bold">Uploaded Files</h2>
+            <table id="fileTable" class="w-full text-left table-auto min-w-max">
+                <thead>
+                    <tr class="bg-gray-200">
+                        <th>Name</th>
+                        <th>Size (Bytes)</th>
+                        <th>Download</th>
+                        <th>Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Loop through uploaded_files and display file details -->
+                    {% for file in uploaded_files %}
+                    <tr>
+                        <td>{{ file.name }}</td>
+                        <td>{{ file.size }}</td>
+                        <!-- Add download and delete buttons if needed -->
+                        <td><a href="{{ file.download_link }}">Download</a></td>
+                        <td><a href="{{ file.delete_link }}">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+<script src="https://sdk.amazonaws.com/js/aws-sdk-2.932.0.min.js"></script>
+<script src="static\script.js"></script>
+
+</html>
